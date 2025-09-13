@@ -18,6 +18,9 @@
 
 <body>
     <?php include './components/header.php'; ?>
+    <section>
+        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut recusandae iste dolor omnis labore dolore provident suscipit deserunt expedita quidem velit illo earum tempora sint ut, non maxime necessitatibus nesciunt.</div>
+    </section>
 </body>
 
 </html>
