@@ -19,12 +19,20 @@
 <body>
     <?php include './components/header.php'; ?>
 
-    <section class="text-center">
-        <div style="height: 850px; background-image: url(assets/imgs/imgs1.png); background-size: cover; background-position: 50%;">
-            <span class="taviraj-thin" style="font-size: 86px">
+    <section class="text-center" style="height: 850px; background-image: url(assets/imgs/imgs1.png); background-size: cover; background-position: 50%;">
+        <div class="d-flex align-items-center justify-content-center">
+            <span class="taviraj-medium color-text " style="font-size: 48px; margin-top: 250px;">
                 WELCOME TO OUT RESTAURANT
             </span>
         </div>
+        <div class="d-flex justify-content-center">
+            <div class="zone-text">
+                <span class="taviraj-extralight text-light " style="font-size: 28px;">
+                    Every dish crafted with care, the service is warm, and only qulity ingredients are used just like home, at Homey.
+                </span>
+            </div>
+        </div>
+        <button type="button" class="btn rounded-5 px-4 my-3 btn_hover" style="font-size: 18px;"><a href="Menu.php" class="nav-link">Discover Our Menu</a></button>
     </section>
 </body>
 
