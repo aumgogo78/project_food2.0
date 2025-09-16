@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] = 'POST') {
   $pictureMenu = null;
 
   if (isset($_FILES['imgs_menu']) && $_FILES['imgs_menu']['error'] == 0) {
-    $target_dir = "../../assets/imgs/";
+    $target_dir = "../../assets/imgs";
     $image_name = basename($_FILES["imgs_menu"]["name"]);
     $target_file = $target_dir . $image_name;
 

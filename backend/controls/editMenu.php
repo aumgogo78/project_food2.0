@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $stmt = $pdo->prepare("UPDATE menu SET name = ? , description = ?, price = ?" . ($product_image ? ",imgs_menu = ?" : "") . "WHERE id = ?");
+    $stmt = $pdo->prepare("UPDATE menu SET name = ? , description = ?, price = ?" . ($product_image ? ",imgs_menu = ?" : "") . " WHERE id = ?");
     $params = [$product, $des, $price];
     if ($product_image) {
         $params[] = $product_image;

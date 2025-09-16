@@ -1,5 +1,5 @@
 <?php
-include './controls/idMenu.php';
+include './controls/idUser.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,40 +23,54 @@ include './controls/idMenu.php';
 <body>
     <?php include '../backend/components/header.php'; ?>
     <div class="d-flex">
+
         <main class="p-4 flex-grow-1">
             <div class="d-flex justify-content-center align-content-center h-b mt-4 text-center">
                 <a href="Menulist.php" class="fs-3 text-black"><i class="bi bi-chevron-left chev"></i></a>
                 <div class="flex-grow-1 text-center">
-                    <h2 class="color-text ">Edit Menu</h2>
+                    <h2 class="color-text ">Edit User</h2>
                 </div>
             </div>
-            <form action="controls/editMenu.php" method="POST" enctype="multipart/form-data" class="mt-5">
-                <input type="hidden" name="id" value="<?= $food['id']; ?>">
+            <form action="controls/editUser.php" method="POST" enctype="multipart/form-data" class="mt-5 px-5 mb-5">
+                <input type="hidden" name="id" value="<?= $user['id']; ?>">
                 <div class="mb-3">
-                    <label for="" class="form-label">name</label>
-                    <input type="text" name="name" class="form-control" value="<?= htmlspecialchars($food['name']); ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label for="" class="form-label">Description</label>
-                    <input type="text" name="description" class="form-control" value="<?= htmlspecialchars($food['description']); ?>">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstName" class="form-control" value="<?= htmlspecialchars($user['firstName']); ?>">
                 </div>
 
                 <div class="mb-3">
-                    <label for="" class="form-label">Price</label>
-                    <input type="text" name="price" class="form-control" value="<?= htmlspecialchars($food['price']) ?>">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastName" class="form-control" value="<?= htmlspecialchars($user['lastName']); ?>">
                 </div>
 
                 <div class="mb-3">
-                    <label for="" class="form-label">Picture</label>
-                    <input type="file" name="imgs_menu" class="form-control">
+                    <label for="">Address</label>
+                    <textarea name="address" id="" class="form-control"><?= htmlspecialchars($user['address']); ?></textarea>
                 </div>
 
-                <div class="mb-3 d-flex flex-column">
-                    <label for="" class="form-label">Show Picture</label>
-                    <img style="max-width: 200px;" src="../assets/imgs/<?= htmlspecialchars($food['imgs_menu']); ?>" alt="">
+                <div class="mb-3">
+                    <label for="">Phone Number</label>
+                    <input type="text" name="phone" class="form-control" value="<?= htmlspecialchars($user['phone']); ?>">
                 </div>
 
+                <div class="mb-3">
+                    <label for="">Email</label>
+                    <input type="email" name="email" class="form-control" value="<?= htmlspecialchars($user['email']); ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Role</label>
+                    <select name="role" class="form-control">
+                        <option value="" selected disabled><- Select Role -></option>
+                        <option value="admin" <?= htmlspecialchars($user['role']) == 'Admin' ? 'selected' : '' ?>>Admin</option>
+                        <option value="customer" <?= htmlspecialchars($user['role']) == 'Customer' ? 'selected' : '' ?>>Customer</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Profile Image</label>
+                    <input type="file" name="profile_image" class="form-control">
+                </div>
                 <button type="submit" class="btn btn-primary">Save</button>
                 <button type="reset" class="btn btn-danger">Reset</button>
             </form>

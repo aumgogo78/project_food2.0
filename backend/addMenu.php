@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,8 +40,8 @@
                                 <input type="text" name="price" class="form-control">
                             </div>
                             <div class="mb-4">
-                                <label for="" class="form-label">Menu Image</label>
-                                <input type="file" name="imgs_menu" class="form-control">
+                                <label for="" class="form-label">Menu Image <p class="d-inline text-danger">(Please upload an image)</p></label>
+                                <input type="file" name="imgs_menu" class="form-control" required>
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100">Add</button>

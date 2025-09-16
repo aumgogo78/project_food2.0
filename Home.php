@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <?php include './components/header.php'; ?>
 
-    <section class="text-center" style="height: 850px; background-image: url(assets/imgs/imgs1.png); background-size: cover; background-position: 50%;">
+    <section class="text-center" style="height: 100vh; background-image: url(assets/imgs/imgs1.png); background-size: cover; background-position: 50%;">
         <div class="d-flex align-items-center justify-content-center">
             <span class="taviraj-medium color-text " style="font-size: 48px; margin-top: 250px;">
                 WELCOME TO OUR RESTAURANT

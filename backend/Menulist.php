@@ -1,5 +1,5 @@
 <?php
-include './controls/fetchMenu.php'
+include './controls/fetchMenu.php';
 ?>
 
 <!DOCTYPE html>
@@ -27,10 +27,10 @@ include './controls/fetchMenu.php'
 
         <main class="p-4 flex-grow-1">
             <div class="text-center">
-                <h2>Menu List</h2>
+                <h2 class="h-b color-text mt-4">Menu List</h2>
             </div>
-            <table class="table table-bordered">
-                <thead>
+            <table class="table table-bordered mt-5">
+                <thead class="">
                     <tr class="text-center">
                         <th>No.</th>
                         <th>ID</th>
@@ -42,7 +42,8 @@ include './controls/fetchMenu.php'
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1; while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+                    <?php $i = 1;
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                         <tr>
                             <td class="text-center"><?= $i++; ?></td>
                             <td class="text-center"><?= htmlspecialchars($row['id']); ?></td>
@@ -50,7 +51,9 @@ include './controls/fetchMenu.php'
                                 <img style="max-width: 200px;" src="../assets/imgs/<?= htmlspecialchars($row['imgs_menu']); ?>" alt="">
                             </td>
                             <td class="text-left"><?= htmlspecialchars($row['name']); ?></td>
-                            <td class="text-left"><?= htmlspecialchars($row['description']); ?></td>
+                            <td class="text-left" style="max-width: 300px; max-height: 100px; overflow-y: auto; word-wrap: break-word;">
+                                <?= htmlspecialchars($row['description']); ?>
+                            </td>
                             <td class="text-left"><?= htmlspecialchars($row['price']); ?> บาท.</td>
                             <td class="text-center">
                                 <a href="editmenu.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-warning">

@@ -27,22 +27,36 @@ include './controls/fetchMenu.php'
             <h2 class="mb-4 mt-5 text-center h-b color-text">Menu</h2>
             <?php if ($stmt->rowCount() > 0) : ?>
                 <div class="container mt-5">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                             <div class="col-md-3 mb-4">
-                                <div class="card rounded-4">
+                                <!-- Flip Card -->
+                                <div class="myCard mx-auto" style="perspective: 1000px; width: 300px; height: 400px;">
+                                    <div class="innerCard position-relative w-100 h-100 text-center"
+                                        style="transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer;">
 
-                                <img style="max-width: 450px;" src="./assets/imgs/<?= htmlspecialchars($row['imgs_menu']); ?>" alt="">
-                                    <div class="card-body" style="overflow: hidden;">
-                                        
-                                        <h5 class="card-title"><?php echo htmlspecialchars($row['name']); ?></h5>
-                                        <div class="text-center">
-                                            <button class="btn btn-primary" id="add-to-cart"
-                                                data-id="<?= htmlspecialchars($row['id']); ?>"
-                                                data-name="<?= htmlspecialchars($row['name']); ?>"
-                                                data-price="<?= htmlspecialchars($row['price']); ?>"
-                                                data-image="<?= htmlspecialchars($row['imgs_menu']); ?>">
-                                                เพิ่มสินค้า</button>
+                                        <!-- Front Side -->
+                                        <div class="frontSide d-flex flex-column align-items-center justify-content-end rounded-4 shadow"
+                                            style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: url('./assets/imgs/<?= htmlspecialchars($row['imgs_menu']); ?>') center/cover no-repeat; font-weight: 700;">
+                                        </div>
+
+                                        <!-- Back Side -->
+                                        <div class="backSide text-white rounded-4 shadow d-flex flex-column justify-content-between "
+                                            style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background-color: rgba(129, 129, 129, 1); transform: rotateY(180deg); font-weight: 200;">
+
+                                            <!-- Text section: ชิดซ้าย -->
+                                            <div class="text-start p-4 flex-grow-1 sb" style="overflow-y: auto; word-wrap: break-word;">
+                                                <p class="mb-2"><strong class="fw-bold">Name : </strong><?= htmlspecialchars($row['name']); ?></p>
+                                                <p class="mb-2"><strong class="fw-bold">Price : </strong><?= htmlspecialchars($row['price']); ?> ฿</p>
+                                                <p class="mb-2"><strong class="fw-bold">Description : </strong><?= htmlspecialchars($row['description']); ?></p>
+                                            </div>
+
+                                            <!-- Button section: อยู่ล่างกลาง -->
+                                            <div class="d-flex justify-content-center p-3">
+                                                <a href="MenuDetail.php?id=<?= $row['id'] ?>" class="b p-2 w-100 fw-medium">
+                                                    Menu Details
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -50,6 +64,9 @@ include './controls/fetchMenu.php'
                         <?php } ?>
                     </div>
                 </div>
-            <?php endif ?>
+            <?php endif; ?>
         </div>
+    </section>
+</body>
+
 </html>
