@@ -22,9 +22,7 @@ session_start();
 
 <body>
     <?php include './components/header.php'; ?>
-    <section>
-        <div>contactus</div>
-    </section>
+    
 </body>
 
 </html>

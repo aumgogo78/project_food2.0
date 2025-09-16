@@ -71,9 +71,9 @@ include './controls/fetchAddress.php';
         <div class="container">
             <h2 class="text-center mt-5 pb-5 bd color-text">Order</h2>
 
-            <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0): ?>
+            <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
                 <div class="row g-3"> <!-- ใช้ row/gutter เพื่อระยะห่างเหมือนเดิม -->
-                    <?php foreach ($_SESSION['cart'] as $index => $food): ?>
+                    <?php foreach ($_SESSION['cart'] as $index => $food) : ?>
                         <div class="col-12">
                             <div class="card" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapse<?= $index ?>" aria-expanded="false" aria-controls="collapse<?= $index ?>">
                                 <img src="./assets/imgs/<?= htmlspecialchars($food['productImage']); ?>" class="card-img-top" alt="<?= htmlspecialchars($food['productName']); ?>" style="height: 200px; object-fit: cover;">
@@ -113,20 +113,19 @@ include './controls/fetchAddress.php';
                 <div class="mt-4">
                     <h4><strong>Total Price: <?= number_format($totalPrice, 2) ?> ฿</strong></h4>
                 </div>
-
-                <!-- Address แสดงปกติ -->
-                <div class="mt-4 text-left">
-                    <h4><strong>Address</strong></h4>
-                    <hr>
-                    <p><strong>Name :</strong> <?= htmlspecialchars($row['firstName'] . " " . $row['lastName']); ?></p>
-                    <p><strong>Email :</strong> <?= htmlspecialchars($row['email']); ?></p>
-                    <p><strong>Tel :</strong> <?= htmlspecialchars($row['phone']); ?></p>
-                    <p><strong>Address :</strong> <?= htmlspecialchars($row['address']); ?></p>
-                </div>
-
-            <?php else: ?>
-                <p class="text-center">There are no products in your cart.</p>
+            <?php else : ?>
+                <p class="text-center mt-5">There are no products in your cart.</p>
             <?php endif; ?>
+
+            <!-- Address แสดงปกติ -->
+            <div class="mt-4 text-left">
+                <h4><strong>Address</strong></h4>
+                <hr>
+                <p><strong>Name :</strong> <?= htmlspecialchars($row['firstName'] . " " . $row['lastName']); ?></p>
+                <p><strong>Email :</strong> <?= htmlspecialchars($row['email']); ?></p>
+                <p><strong>Tel :</strong> <?= htmlspecialchars($row['phone']); ?></p>
+                <p><strong>Address :</strong> <?= htmlspecialchars($row['address']); ?></p>
+            </div>
     </section>
 
     <script>
@@ -146,6 +145,8 @@ include './controls/fetchAddress.php';
             });
         }
     </script>
+
+    <?php include './components/footer.php'; ?>
 
 </body>
 

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body style="background-image: linear-gradient(to top,rgb(255, 223, 118),rgb(255, 255, 255));">
+<body style="background-image: url('assets/imgs/ai-generated-cozy-restaurant-interior-with-warm-lighting-wooden-furniture-by-large-windows-generative-by-ai-photo\ \(1\).jpg'); background-size: cover; background-repeat: no-repeat;">
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh; max-width: 40%; border-radius: 6ch;">
         <div class="card" style="width: 100%; border-radius: 6ch; box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);">
             <div class="row g-0">

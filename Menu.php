@@ -31,7 +31,7 @@ include './controls/fetchMenu.php'
                         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                             <div class="col-md-3 mb-4">
                                 <!-- Flip Card -->
-                                <div class="myCard mx-auto" style="perspective: 1000px; width: 300px; height: 400px;">
+                                <div class="myCard mx-auto gap-4" style="perspective: 1000px; width: 300px; height: 400px;">
                                     <div class="innerCard position-relative w-100 h-100 text-center"
                                         style="transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer;">
 
@@ -67,6 +67,8 @@ include './controls/fetchMenu.php'
             <?php endif; ?>
         </div>
     </section>
+
+    <?php include './components/footer.php'; ?>
 </body>
 
 </html>

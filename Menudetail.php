@@ -26,8 +26,9 @@ include './controls/fetchMenu.php';
         <div class="d-flex justify-content-center align-content-center bd p-4 text-center" style="box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);">
             <a href="Menu.php" class="fs-3 text-black"><i class="bi bi-chevron-left chev"></i></a>
             <div class="flex-grow-1 text-center">
-                <h2 class="color-text ">Menu Details</h2>
+                <h2 class="color-text">Menu Details</h2>
             </div>
+            <a href="order.php" class="color-text"><i class="bi bi-cart3 od"></i> Order</a>
         </div>
         <?php if (!empty($food)): ?>
 
@@ -61,6 +62,8 @@ include './controls/fetchMenu.php';
             </button>
         </div>
     </main>
+
+    <?php include './components/footer.php'; ?>
 </body>
 
 </html>
