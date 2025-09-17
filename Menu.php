@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './controls/fetchMenu.php'
 ?>
 
@@ -26,7 +27,7 @@ include './controls/fetchMenu.php'
         <div class="container">
             <h2 class="mb-4 mt-5 text-center h-b color-text">Menu</h2>
             <?php if ($stmt->rowCount() > 0) : ?>
-                <div class="container mt-5">
+                <div class="container mt-5 mb-5">
                     <div class="row justify-content-center">
                         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                             <div class="col-md-3 mb-4">

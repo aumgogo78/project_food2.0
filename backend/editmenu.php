@@ -67,9 +67,9 @@ include './controls/idMenu.php';
         <script>
             Swal.fire({
                 icon: 'success',
-                title: 'สำเร็จ',
+                title: 'Success',
                 text: '<?= $_SESSION['success']; ?>',
-                confirmButtonText: 'ตกลง'
+                confirmButtonText: 'Confirm'
             });
         </script>
     <?php unset($_SESSION['success']);
@@ -79,9 +79,9 @@ include './controls/idMenu.php';
         <script>
             Swal.fire({
                 icon: 'error',
-                title: 'ผิดพลาด',
+                title: 'Error',
                 text: '<?= $_SESSION['error']; ?>',
-                confirmButtonText: 'ตกลง'
+                confirmButtonText: 'Confirm'
             });
         </script>
     <?php unset($_SESSION['error']);

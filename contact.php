@@ -22,7 +22,15 @@ session_start();
 
 <body>
     <?php include './components/header.php'; ?>
-    
+    <div class="" style="height: 100vh; background-image: url(assets/imgs/pexels-mart-production-9566087.jpg); background-size: cover; background-repeat: no-repeat;"></div>
+
+    <div class="p-5">
+        <div class="text-start px-5 mt-3 color-text">
+            <h3 class="mb-5">Email : Homey@gmail.com</h3>
+            <h3 class="mb-5">Phone Number : +063-xxx-64xx</h3>
+            <h3 class="mb-5">Created by : Jirapat , Watcharin , Nattaphum</h3>
+        </div>
+    </div>
 </body>
 
 </html>

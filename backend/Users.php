@@ -62,12 +62,12 @@ include './controls/fetchUser.php';
                                 <script>
                                     function confirmDelete(id) {
                                         Swal.fire({
-                                            title: 'คุณแน่ใจหรือไม่?',
-                                            text: "คุณต้องการลบผู้ใช้งานนี้หรือไม่?",
+                                            title: 'Are you sure?',
+                                            text: "Are you sure you want to delete this user?",
                                             icon: 'warning',
                                             showCancelButton: true,
-                                            confirmButtonText: 'ใช่, ลบเลย!',
-                                            cancelButtonText: 'ยกเลิก'
+                                            confirmButtonText: 'Yes, Delete it!',
+                                            cancelButtonText: 'Cancel'
                                         }).then((result) => {
                                             if (result.isConfirmed) {
                                                 window.location.href = `controls/deleteUser.php?id=${id}`;
@@ -87,9 +87,9 @@ include './controls/fetchUser.php';
         <script>
             Swal.fire({
                 icon: 'success',
-                title: 'สำเร็จ',
+                title: 'success',
                 text: '<?= $_SESSION['success']; ?>',
-                confirmButtonText: 'ตกลง'
+                confirmButtonText: 'Confirm'
             });
         </script>
     <?php unset($_SESSION['success']);
@@ -99,9 +99,9 @@ include './controls/fetchUser.php';
         <script>
             Swal.fire({
                 icon: 'error',
-                title: 'ผิดพลาด',
+                title: 'Error',
                 text: '<?= $_SESSION['error']; ?>',
-                confirmButtonText: 'ตกลง'
+                confirmButtonText: 'Confirm'
             });
         </script>
     <?php unset($_SESSION['error']);

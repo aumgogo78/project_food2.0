@@ -50,8 +50,12 @@ include './controls/fetchMenu.php';
         <?php endif; ?>
 
         <div class="d-flex justify-content-center align-content-center p-4 text-center gap-5 bt w-100 bg-white">
-            <button type="submit" class="btn-favorite w-50">
-                <i class="bi bi-star"></i> Add to favorite
+            <button class="btn-favorite w-50" id="add-to-favorite"
+                data-id="<?= htmlspecialchars($food['id']); ?>"
+                data-name="<?= htmlspecialchars($food['name']); ?>"
+                data-price="<?= htmlspecialchars($food['price']); ?>"
+                data-image="<?= htmlspecialchars($food['imgs_menu']); ?>">
+                <i class="bi bi-star"></i> Add to order
             </button>
             <button class="btn-add-to-order w-50" id="add-to-order"
                 data-id="<?= htmlspecialchars($food['id']); ?>"
@@ -94,17 +98,60 @@ include './controls/fetchMenu.php';
                     .then(response => response.text())
                     .then(data => {
                         Swal.fire({
-                            title: 'สำเร็จ',
-                            text: `${productName} ได้ถูกเพิ่มลงในตะกร้าแล้ว!`,
+                            title: 'Success',
+                            text: `${productName} Has been added to the order.!`,
                             icon: 'success',
-                            confirmButtonText: 'ตกลง'
+                            confirmButtonText: 'Confirm'
                         });
                     }).catch(error => {
                         Swal.fire({
-                            title: 'เกิดข้อผิดพลาด',
-                            text: `${error.message} ไม่สามารถเพิ่มสินค้าได้ กรุณาลองใหม่อีกครั้ง`,
+                            title: 'Error',
+                            text: `${error.message} We couldn't add the item. Please try again.`,
                             icon: 'error',
-                            confirmButtonText: 'ตกลง'
+                            confirmButtonText: 'Confirm'
+                        });
+                    });
+
+            });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const addToCartButtons = document.querySelectorAll('#add-to-favorite');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('data-id');
+                const productName = this.getAttribute('data-name');
+                const productPrice = this.getAttribute('data-price');
+                const productImage = this.getAttribute('data-image');
+
+                fetch('./controls/addToFavorite.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: new URLSearchParams({
+                            productId: productId,
+                            productName: productName,
+                            productPrice: productPrice,
+                            productImage: productImage
+                        })
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        Swal.fire({
+                            title: 'Success',
+                            text: `${productName} Has been added to the favorite.!`,
+                            icon: 'success',
+                            confirmButtonText: 'Confirm'
+                        });
+                    }).catch(error => {
+                        Swal.fire({
+                            title: 'Error',
+                            text: `${error.message} We couldn't add the item. Please try again.`,
+                            icon: 'error',
+                            confirmButtonText: 'Confirm'
                         });
                     });
 

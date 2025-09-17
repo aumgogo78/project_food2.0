@@ -6,17 +6,17 @@
             <a href="signin.php" class="nav-link text-dark"><i class="bi bi-person-fill"></i> <?= htmlspecialchars($_SESSION['name']); ?></a>
             <!-- <a href="./backend/setting.php" class="nav-link text-dark"><i class="bi bi-gear-fill"></i> Setting</a> -->
             <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-gear-fill"></i> Setting
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <?php if(isset($_SESSION['role']) && $_SESSION ['role'] === 'admin' ) : ?>
-                            <li><a href="/project_food2.0/backend/Menulist.php" class="dropdown-item" >จัดการข้อมูล</a></li>
-                            <?php endif; ?>
-                            <li><a href="profile.php" class="dropdown-item">โปรไฟล์</a></li>
-                            <li><a href="controls/signout.php" class="dropdown-item">ออกจากระบบ</a></li>   
-                        </ul>
-                    </div>
+                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-gear-fill"></i> Setting
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') : ?>
+                        <li><a href="/project_food2.0/backend/Menulist.php" class="dropdown-item">Manage</a></li>
+                    <?php endif; ?>
+                    <li><a href="favorite.php" class="dropdown-item">Favorite</a></li>
+                    <li><a href="controls/signout.php" class="dropdown-item">Log Out</a></li>
+                </ul>
+            </div>
         </div>
 
         <h4 class="text-center mb-4 taviraj-thin color-text" style="font-size: 90px;">HOMEY</h4>

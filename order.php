@@ -75,34 +75,43 @@ include './controls/fetchAddress.php';
                 <div class="row g-3"> <!-- ใช้ row/gutter เพื่อระยะห่างเหมือนเดิม -->
                     <?php foreach ($_SESSION['cart'] as $index => $food) : ?>
                         <div class="col-12">
-                            <div class="card" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapse<?= $index ?>" aria-expanded="false" aria-controls="collapse<?= $index ?>">
+                            <div class="card mt-5" style="cursor: pointer; border: 1px solid #555555ff;" data-bs-toggle="collapse" data-bs-target="#collapse<?= $index ?>" aria-expanded="false" aria-controls="collapse<?= $index ?>">
                                 <img src="./assets/imgs/<?= htmlspecialchars($food['productImage']); ?>" class="card-img-top" alt="<?= htmlspecialchars($food['productName']); ?>" style="height: 200px; object-fit: cover;">
+                                <div class="nmenu">
+                                    <h2><?= htmlspecialchars($food['productName']); ?></h2>
+                                </div>
+                                <div class="qtity">
+                                    <h2><Strong>Quantity : </Strong><?= htmlspecialchars($food['quantity']); ?></h2>
+                                </div>
                             </div>
 
                             <!-- Collapsible content -->
-                            <div id="collapse<?= $index ?>" class="collapse">
-                                <div class="p-3">
-                                    <p><strong>Price:</strong> <?= htmlspecialchars($food['productPrice']); ?> ฿</p>
-                                    <p><strong>Total Price:</strong> <?= htmlspecialchars($food['productPrice'] * $food['quantity']); ?> ฿</p>
+                            <div id="collapse<?= $index ?>" class="collapse rounded" style="box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);">
+                                <div class="p-3 d-flex justify-content-between">
+                                    <div>
+                                        <p><strong>Price:</strong> <?= htmlspecialchars($food['productPrice']); ?> ฿</p>
+                                        <p><strong>Total Price:</strong> <?= htmlspecialchars($food['productPrice'] * $food['quantity']); ?> ฿</p>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 mt-2">
+                                            <form method="post" style="display:inline;">
+                                                <input type="hidden" name="productId" value="<?= htmlspecialchars($food['productId']); ?>">
+                                                <input type="hidden" name="action" value="increase">
+                                                <button type="submit" class="btn btn-success"><i class="bi bi-plus-circle-fill"></i></button>
+                                            </form>
 
-                                    <div class="d-flex align-items-center gap-2 mt-2">
-                                        <form method="post" style="display:inline;">
-                                            <input type="hidden" name="productId" value="<?= htmlspecialchars($food['productId']); ?>">
-                                            <input type="hidden" name="action" value="increase">
-                                            <button type="submit" class="btn btn-success btn-sm">+</button>
-                                        </form>
+                                            <form method="post" style="display:inline;">
+                                                <input type="hidden" name="productId" value="<?= htmlspecialchars($food['productId']); ?>">
+                                                <input type="hidden" name="action" value="decrease">
+                                                <button type="submit" class="btn btn-warning"><i class="bi bi-dash-circle-fill"></i></button>
+                                            </form>
 
-                                        <form method="post" style="display:inline;">
-                                            <input type="hidden" name="productId" value="<?= htmlspecialchars($food['productId']); ?>">
-                                            <input type="hidden" name="action" value="decrease">
-                                            <button type="submit" class="btn btn-warning btn-sm">-</button>
-                                        </form>
-
-                                        <form method="post" style="display:inline;" onsubmit="confirmDelete(event)">
-                                            <input type="hidden" name="productId" value="<?= htmlspecialchars($food['productId']); ?>">
-                                            <input type="hidden" name="action" value="remove">
-                                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-                                        </form>
+                                            <form method="post" style="display:inline;" onsubmit="confirmDelete(event)">
+                                                <input type="hidden" name="productId" value="<?= htmlspecialchars($food['productId']); ?>">
+                                                <input type="hidden" name="action" value="remove">
+                                                <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +127,7 @@ include './controls/fetchAddress.php';
             <?php endif; ?>
 
             <!-- Address แสดงปกติ -->
-            <div class="mt-4 text-left">
+            <div class="mt-5 text-left">
                 <h4><strong>Address</strong></h4>
                 <hr>
                 <p><strong>Name :</strong> <?= htmlspecialchars($row['firstName'] . " " . $row['lastName']); ?></p>
@@ -133,11 +142,11 @@ include './controls/fetchAddress.php';
             event.preventDefault();
             const form = event.target;
             Swal.fire({
-                text: "คุณต้องการลบเมนูนี้ออกจากตะกร้าหรือไม่",
+                text: "Do you want to remove this menu from the order?",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'ใช่, ลบเลย!',
-                cancelButtonText: 'ยกเลิก'
+                confirmButtonText: 'Yes, Delete it!',
+                cancelButtonText: 'Cancel'
             }).then((result) => {
                 if (result.isConfirmed) {
                     form.submit();

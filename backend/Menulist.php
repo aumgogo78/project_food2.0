@@ -30,7 +30,7 @@ include './controls/fetchMenu.php';
                 <h2 class="h-b color-text mt-4">Menu List</h2>
             </div>
             <table class="table table-bordered mt-5">
-                <thead class="">
+                <thead class="table-dark">
                     <tr class="text-center">
                         <th>No.</th>
                         <th>ID</th>
@@ -66,12 +66,12 @@ include './controls/fetchMenu.php';
                                 <script>
                                     function confirmDelete(id) {
                                         Swal.fire({
-                                            title: 'คุณแน่ใจหรือไม่?',
-                                            text: "คุณต้องการลบผู้ใช้งานนี้หรือไม่?",
+                                            title: 'Are you sure?',
+                                            text: "Are you sure you want to delete this menu??",
                                             icon: 'warning',
                                             showCancelButton: true,
-                                            confirmButtonText: 'ใช่, ลบเลย!',
-                                            cancelButtonText: 'ยกเลิก'
+                                            confirmButtonText: 'Yes, Delete it!',
+                                            cancelButtonText: 'Cancel'
                                         }).then((result) => {
                                             if (result.isConfirmed) {
                                                 window.location.href = `controls/deleteMenu.php?id=${id}`;
