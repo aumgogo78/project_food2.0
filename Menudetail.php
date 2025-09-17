@@ -117,14 +117,14 @@ include './controls/fetchMenu.php';
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-        const addToCartButtons = document.querySelectorAll('#add-to-favorite');
+        const addToFavorButtons = document.querySelectorAll('#add-to-favorite');
 
-        addToCartButtons.forEach(button => {
+        addToFavorButtons.forEach(button => {
             button.addEventListener('click', function() {
-                const productId = this.getAttribute('data-id');
-                const productName = this.getAttribute('data-name');
-                const productPrice = this.getAttribute('data-price');
-                const productImage = this.getAttribute('data-image');
+                const productsId = this.getAttribute('data-id');
+                const productsName = this.getAttribute('data-name');
+                const productsPrice = this.getAttribute('data-price');
+                const productsImage = this.getAttribute('data-image');
 
                 fetch('./controls/addToFavorite.php', {
                         method: 'POST',
@@ -132,17 +132,17 @@ include './controls/fetchMenu.php';
                             'Content-Type': 'application/x-www-form-urlencoded'
                         },
                         body: new URLSearchParams({
-                            productId: productId,
-                            productName: productName,
-                            productPrice: productPrice,
-                            productImage: productImage
+                            productsId: productsId,
+                            productsName: productsName,
+                            productsPrice: productsPrice,
+                            productsImage: productsImage
                         })
                     })
                     .then(response => response.text())
                     .then(data => {
                         Swal.fire({
                             title: 'Success',
-                            text: `${productName} Has been added to the favorite.!`,
+                            text: `${productsName} Has been added to the favorite.!`,
                             icon: 'success',
                             confirmButtonText: 'Confirm'
                         });

@@ -3,9 +3,9 @@ session_start();
 //เพิ่มจำนวนสินค้าในตะกร้า
 if (isset($_POST['action']) && $_POST['action'] == 'increase' && isset($_POST['productId'])) {
     $productId = $_POST['productId'];
-    foreach ($_SESSION['cart'] as $key => $item) { //ใช้ $key เพื่อไม่ให้มีการอ้างอิงโดยตรง
+    foreach ($_SESSION['favor'] as $key => $item) { //ใช้ $key เพื่อไม่ให้มีการอ้างอิงโดยตรง
         if ($item['productId'] == $productId) {
-            $_SESSION['cart'][$key]['quantity'] += 1;
+            $_SESSION['favor'][$key]['quantity'] += 1;
             break;
         }
     }
@@ -14,9 +14,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'increase' && isset($_POST['p
 //ลดจำนวนสินค้าในตะกร้า
 if (isset($_POST['action']) && $_POST['action'] == 'decrease' && isset($_POST['productId'])) {
     $productId = $_POST['productId'];
-    foreach ($_SESSION['cart'] as $key => $item) {
+    foreach ($_SESSION['favor'] as $key => $item) {
         if ($item['productId'] == $productId && $item['quantity'] > 1) {
-            $_SESSION['cart'][$key]['quantity'] -= 1;
+            $_SESSION['favor'][$key]['quantity'] -= 1;
             break;
         }
     }
@@ -25,9 +25,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'decrease' && isset($_POST['p
 //ลบสินค้าออกจากตะกร้า
 if (isset($_POST['action']) && $_POST['action'] == 'remove' && isset($_POST['productId'])) {
     $productId = $_POST['productId'];
-    foreach ($_SESSION['cart'] as $key => $item) {
+    foreach ($_SESSION['favor'] as $key => $item) {
         if ($item['productId'] == $productId) {
-            unset($_SESSION['cart'][$key]);
+            unset($_SESSION['favor'][$key]);
             break;
         }
     }
@@ -35,14 +35,16 @@ if (isset($_POST['action']) && $_POST['action'] == 'remove' && isset($_POST['pro
 
 // คำนวณราคาทั้งหมด
 $totalPrice = 0;
-if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
-    foreach ($_SESSION['cart'] as $item) {
+if (isset($_SESSION['favor']) && count($_SESSION['favor']) > 0) {
+    foreach ($_SESSION['favor'] as $item) {
         $totalPrice += (float)$item['productPrice'] * (int)$item['quantity'];
     }
 }
 
 include './controls/fetchAddress.php';
-include './controls/fetchMenu.php'
+include './controls/fetchFavor.php';
+include './controls/idFavor.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -71,9 +73,9 @@ include './controls/fetchMenu.php'
         <div class="container mb-5">
             <h2 class="text-center mt-5 pb-5 bd color-text">Favorite</h2>
 
-            <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
+            <?php if (isset($_SESSION['favor']) && count($_SESSION['favor']) > 0) : ?>
                 <div class="row g-3"> <!-- ใช้ row/gutter เพื่อระยะห่างเหมือนเดิม -->
-                    <?php foreach ($_SESSION['cart'] as $index => $food) : ?>
+                    <?php foreach ($_SESSION['favor'] as $index => $food) : ?>
                         <div class="col-12">
                             <div class="card mt-5" style="cursor: pointer; border: 1px solid #555555ff;" data-bs-toggle="collapse" data-bs-target="#collapse<?= $index ?>" aria-expanded="false" aria-controls="collapse<?= $index ?>">
                                 <img src="./assets/imgs/<?= htmlspecialchars($food['productImage']); ?>" class="card-img-top" alt="<?= htmlspecialchars($food['productName']); ?>" style="height: 200px; object-fit: cover;">
