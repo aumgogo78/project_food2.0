@@ -46,13 +46,13 @@ if (!isset($_SESSION['user_id'])) {
     
     <div class="container py-5">
         <h2 class="text-center mb-5 bd pb-5 color-text">Best selling menu</h2>
-        <div class="row d-flex justify-content-center bd pb-5">
+        <div class="row d-flex justify-content-center bd pb-5" >
                 <!-- อันดับ 3 -->
-                <div class="col-md-4 mb-4 px-5">
+                <div class="col-md-4 mb-4 px-5" >
                     <div class="menu-card-3">
                         <span class="rank-badge rank-3 fs-3">3</span>
                         <div class="menu-info">
-                            <h5>Spaghetti</h5>
+                            <h5>Yigithan</h5>
                             <button class="btn-order">order now</button>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="menu-card-2">
                         <span class="rank-badge rank-2 fs-3">2</span>
                         <div class="menu-info">
-                            <h5>Spaghetti</h5>
+                            <h5>fried rice</h5>
                             <button class="btn-order">order now</button>
                         </div>
                     </div>

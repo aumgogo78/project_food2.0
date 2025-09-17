@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2025 at 05:22 AM
+-- Generation Time: Sep 17, 2025 at 07:13 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,10 +40,10 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id`, `name`, `description`, `price`, `imgs_menu`) VALUES
-(2, 'haha', '-', 35, 'gaitom.jpg'),
-(3, 'haha', '-', 70, 'joy.png'),
-(0, 'fkja;lks', '\'dpfa[\'psdf', 6, 'r1m.1.png'),
-(0, 'fkja;lks', '\'dpfa[\'psdf', 60, 'cartethyia.png');
+(2, 'Tom yum Goong', '-', 100, 'Tom Yum Goong (ต้มยำกุ้ง).jpg'),
+(3, 'Steak', '-', 170, 'pexels-ionela-mat-268382825-19671314.jpg'),
+(0, 'Spaghetti', '-', 120, 'pexels-max-griss-16866522-6406460.jpg'),
+(0, 'Spaghetti', '-', 120, 'pexels-yigithan02-765082.jpg');
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `address`, `email`, `password`, `phone`, `profile_image`, `role`) VALUES
-(1, 'jirapat', 'limcharoen', 'faneoknfaksneknfasne;flknas;lkef;lksae;lkf;lkjsae[poif[epowoassf', 'jirapat@gmail.com', '$2y$10$nsymb5P9IIR6D3l6D15kOOEYzswSWmfPVH0dK4Vh3W2Ih3ykFc4zG', '0614811266', '', 'admin');
+(1, 'jirapat', 'limcharoen', 'faneoknfaksneknfasne;flknas;lkef;lksae;lkf;lkjsae[poif[epowoassf', 'jirapat@gmail.com', '$2y$10$nsymb5P9IIR6D3l6D15kOOEYzswSWmfPVH0dK4Vh3W2Ih3ykFc4zG', '0614811266', '', 'admin'),
+(3, 'Watcharin', 'Kampitak', 'test test test', 'aumzzzlkii@gmail.com', '$2y$10$7SOJImH9PTeSK34N.N0B9OrNzEsltvXY//StTyH0JTapvlyLoN0ZW', '0956197604', '', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -88,7 +89,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

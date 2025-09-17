@@ -55,7 +55,7 @@ include './controls/fetchMenu.php';
                 data-name="<?= htmlspecialchars($food['name']); ?>"
                 data-price="<?= htmlspecialchars($food['price']); ?>"
                 data-image="<?= htmlspecialchars($food['imgs_menu']); ?>">
-                <i class="bi bi-star"></i> Add to order
+                <i class="bi bi-star"></i> Add to Favorite
             </button>
             <button class="btn-add-to-order w-50" id="add-to-order"
                 data-id="<?= htmlspecialchars($food['id']); ?>"
